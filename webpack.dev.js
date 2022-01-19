@@ -9,6 +9,9 @@ module.exports = merge(common, {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),

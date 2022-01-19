@@ -11,5 +11,8 @@ module.exports = merge(common, {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.[contenthash].js',
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   plugins: [new CleanWebpackPlugin()],
 });
