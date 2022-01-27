@@ -1,5 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 
+// Images
+import siteBg from '@Images/site-bg.svg';
+
 // Fonts
 import NunitoLight from '@Fonts/Nunito-Light.ttf';
 import NunitoRegular from '@Fonts/Nunito-Regular.ttf';
@@ -83,6 +86,7 @@ export const GlobalStyles = createGlobalStyle`
     --primary-color: #7C3AED;
     --primary-color-tint: #5B21B6;
     --primary-color-shade: #4C1D95;
+    --gray-dark: #333333;
     --text-color-tint: hsla(0,0%,100%,0.75);
     --white: #fff;
   }
@@ -118,6 +122,12 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     -webkit-font-smoothing: antialiased;
+    background-color: var(--white);
+    min-height: 100vh;
+    background-image: ${`url(${siteBg})`};
+    fill:rgba(101, 68, 233, 0.15);
+    background-size:290px 290px;
+    background-repeat:repeat;
   }
 
   body, input, textarea, button {

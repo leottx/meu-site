@@ -71,6 +71,16 @@ module.exports = {
         ],
       },
       {
+        test: /\.pdf$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[hash].[ext]',
+            outputPath: 'docs',
+          },
+        },
+      },
+      {
         test: /\.(woff(2)?|ttf)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
           {
@@ -87,6 +97,7 @@ module.exports = {
   resolve: {
     alias: {
       '@Components': path.resolve(__dirname, 'src/components/'),
+      '@Docs': path.resolve(__dirname, 'src/assets/docs'),
       '@Images': path.resolve(__dirname, 'src/assets/images/'),
       '@Fonts': path.resolve(__dirname, 'src/assets/fonts/'),
       '@Styles': path.resolve(__dirname, 'src/assets/styles'),

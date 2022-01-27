@@ -1,4 +1,4 @@
-import { NavSm, ProjectBtn } from '@Styles/Header';
+import { NavSm, ProjectBtn } from '@Styles/header';
 
 export const NavbarSm = () => {
   return (

@@ -1,17 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-  position: sticky;
   padding: 2rem;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
   background: var(--primary-color);
-  /* @media only screen and (min-width: 40em) {
-    box-shadow: 0 3px 5px rgba($color: c.$black, $alpha: 0.2);
-    height: auto !important;
-  } */
 `;
 
 export const Wrapper = styled.div`

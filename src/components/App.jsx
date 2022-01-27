@@ -3,6 +3,7 @@ import React from 'react';
 // COMPONENTES
 import { Helmet } from 'react-helmet';
 import { Header } from '@Components/Header';
+import { Hero } from '@Components/Hero';
 
 // ESTILOS
 import { GlobalStyles } from '@Styles/global';
@@ -22,6 +23,7 @@ export const App = () => {
       </Helmet>
       <GlobalStyles />
       <Header />
+      <Hero />
     </>
   );
 };
