@@ -2,6 +2,7 @@ import React from 'react';
 
 // COMPONENTES
 import { Helmet } from 'react-helmet';
+import { Header } from '@Components/Header';
 
 // ESTILOS
 import { GlobalStyles } from '@Styles/global';
@@ -20,7 +21,7 @@ export const App = () => {
         <title>Leonardo Teixeira</title>
       </Helmet>
       <GlobalStyles />
-      <h1>Hello World</h1>
+      <Header />
     </>
   );
 };
