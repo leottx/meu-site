@@ -1,39 +1,19 @@
 import { createGlobalStyle } from 'styled-components';
 
 // Fonts
-import MontserratLight from '@Fonts/Montserrat-Light.ttf';
-import MontserratRegular from '@Fonts/Montserrat-Regular.ttf';
-import MontserratSemibold from '@Fonts/Montserrat-SemiBold.ttf';
-import MontserratMedium from '@Fonts/Montserrat-Medium.ttf';
+import NunitoLight from '@Fonts/Nunito-Light.ttf';
+import NunitoRegular from '@Fonts/Nunito-Regular.ttf';
+import NunitoSemibold from '@Fonts/Nunito-SemiBold.ttf';
+import NunitoMedium from '@Fonts/Nunito-Medium.ttf';
+import NunitoBold from '@Fonts/Nunito-Bold.ttf';
+import NunitoExtraBold from '@Fonts/Nunito-ExtraBold.ttf';
+import PTSerifBold from '@Fonts/PTSerif-Bold.ttf';
+import PTSerifRegular from '@Fonts/PTSerif-Regular.ttf';
 import MontserratBold from '@Fonts/Montserrat-Bold.ttf';
-import MontserratExtraBold from '@Fonts/Montserrat-ExtraBold.ttf';
+import MontserratMedium from '@Fonts/Montserrat-Medium.ttf';
 
 export const GlobalStyles = createGlobalStyle`
   // Montserrat
-  @font-face {
-    src: ${`url(${MontserratLight}) format('truetype')`};
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 300;
-  }
-  @font-face {
-    src: ${`url(${MontserratRegular}) format('truetype')`};
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-  }
-  @font-face {
-    src: ${`url(${MontserratMedium}) format('truetype')`};
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 500;
-  }
-  @font-face {
-    src: ${`url(${MontserratSemibold}) format('truetype')`};
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 600;
-  }
   @font-face {
     src: ${`url(${MontserratBold}) format('truetype')`};
     font-family: 'Montserrat';
@@ -41,30 +21,73 @@ export const GlobalStyles = createGlobalStyle`
     font-weight: 700;
   }
   @font-face {
-    src: ${`url(${MontserratExtraBold}) format('truetype')`};
+    src: ${`url(${MontserratMedium}) format('truetype')`};
     font-family: 'Montserrat';
     font-style: normal;
+    font-weight: 500;
+  }
+  // Nunito
+  @font-face {
+    src: ${`url(${NunitoLight}) format('truetype')`};
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 300;
+  }
+  @font-face {
+    src: ${`url(${NunitoRegular}) format('truetype')`};
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+  }
+  @font-face {
+    src: ${`url(${NunitoMedium}) format('truetype')`};
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 500;
+  }
+  @font-face {
+    src: ${`url(${NunitoSemibold}) format('truetype')`};
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+  }
+  @font-face {
+    src: ${`url(${NunitoBold}) format('truetype')`};
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+  }
+  @font-face {
+    src: ${`url(${NunitoExtraBold}) format('truetype')`};
+    font-family: 'Nunito';
+    font-style: normal;
     font-weight: 800;
+  }
+  // PTSerif
+  @font-face {
+    src: ${`url(${PTSerifBold}) format('truetype')`};
+    font-family: 'PTSerif';
+    font-style: normal;
+    font-weight: 700;
+  }
+  @font-face {
+    src: ${`url(${PTSerifRegular}) format('truetype')`};
+    font-family: 'PTSerif';
+    font-style: normal;
+    font-weight: 400;
   }
 
   // Variables
   :root {
     --black: #000;
-    --primary-color: #6544e9;
-    --primary-color-contrast: #fff;
-    --primary-color-tint: #8262ff;
-    --primary-color-shade: #4b32ae;
-    --secondary-color: #30206f;
-    --secondary-color-contrast: #fff;
-    --secondary-color-shade: #1a123d;
-    --ternary-color:#120c24;
-    --ternary-color-shade: #0a0713;
+    --primary-color: #7C3AED;
+    --primary-color-tint: #5B21B6;
+    --primary-color-shade: #4C1D95;
     --text-color-tint: hsla(0,0%,100%,0.75);
-    --light-grey: rgba(255, 255, 255, 0.63);
     --white: #fff;
   }
 
-  [data-theme='dark'] {
+  /* [data-theme='dark'] {
     --black: #000;
     --primary-color: #6544e9;
     --primary-color-contrast: #fff;
@@ -78,7 +101,7 @@ export const GlobalStyles = createGlobalStyle`
     --text-color-tint: hsla(0,0%,100%,0.75);
     --light-grey: rgba(255, 255, 255, 0.63);
     --white: #fff;
-  }
+  } */
 
   // Smooth Reset
   *,
@@ -98,7 +121,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body, input, textarea, button {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Arial', sans-serif;
     font-weight: 400;
   }
 
