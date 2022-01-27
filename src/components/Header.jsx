@@ -13,7 +13,7 @@ import {
   LogoIcon,
   LogoText,
   Hamburguer,
-} from '@Styles/Header';
+} from '@Styles/header';
 
 export const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
