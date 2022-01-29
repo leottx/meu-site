@@ -83,29 +83,17 @@ export const GlobalStyles = createGlobalStyle`
   // Variables
   :root {
     --black: #000;
-    --primary-color: #7C3AED;
-    --primary-color-tint: #5B21B6;
-    --primary-color-shade: #4C1D95;
+    --primary-color: #B91C1C;
+    --primary-color-tint: #991B1B;
+    --primary-color-shade: #7F1D1D;
     --gray-dark: #333333;
+    --gray-darker: #292929;
+    --orange: #EA580C;
+    --orange-light: #FED7AA;
+    --teal: #115E59;
     --text-color-tint: hsla(0,0%,100%,0.75);
     --white: #fff;
   }
-
-  /* [data-theme='dark'] {
-    --black: #000;
-    --primary-color: #6544e9;
-    --primary-color-contrast: #fff;
-    --primary-color-tint: #8262ff;
-    --primary-color-shade: #4b32ae;
-    --secondary-color: #30206f;
-    --secondary-color-contrast: #fff;
-    --secondary-color-shade: #1a123d;
-    --ternary-color:#120c24;
-    --ternary-color-shade: #0a0713;
-    --text-color-tint: hsla(0,0%,100%,0.75);
-    --light-grey: rgba(255, 255, 255, 0.63);
-    --white: #fff;
-  } */
 
   // Smooth Reset
   *,
@@ -123,11 +111,11 @@ export const GlobalStyles = createGlobalStyle`
   body {
     -webkit-font-smoothing: antialiased;
     background-color: var(--white);
-    min-height: 100vh;
+    /* min-height: 100vh;
     background-image: ${`url(${siteBg})`};
     fill:rgba(101, 68, 233, 0.15);
     background-size:290px 290px;
-    background-repeat:repeat;
+    background-repeat:repeat; */
   }
 
   body, input, textarea, button {
