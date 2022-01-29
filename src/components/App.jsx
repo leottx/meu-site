@@ -4,6 +4,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Header } from '@Components/Header';
 import { Hero } from '@Components/Hero';
+import { Portfolio } from '@Components/Portfolio';
 
 // ESTILOS
 import { GlobalStyles } from '@Styles/global';
@@ -24,6 +25,7 @@ export const App = () => {
       <GlobalStyles />
       <Header />
       <Hero />
+      <Portfolio />
     </>
   );
 };
