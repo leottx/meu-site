@@ -5,7 +5,7 @@ export const Container = styled.section`
 `;
 
 export const HeroWrapper = styled.div`
-  padding: 2rem 0 8rem;
+  padding: 2rem 0 6rem;
   background-size: cover;
   background-position: top center;
   box-shadow: none;
@@ -13,7 +13,7 @@ export const HeroWrapper = styled.div`
   display: grid;
   align-content: start;
   position: relative;
-  grid-template-columns: 3rem 1fr 3rem;
+  grid-template-columns: 2rem 1fr 2rem;
   grid-template-areas:
     '. title .'
     '. image .'
@@ -41,7 +41,7 @@ export const HeroTitleWrapper = styled.div`
   }
   h1 {
     color: var(--white);
-    font-size: 3.5rem;
+    font-size: calc(3.2rem + 1.3vw);
     font-weight: 800;
     line-height: 1.2;
     padding: 0.5em 0 1em;
@@ -85,7 +85,7 @@ export const HeroSkillWrapper = styled.div`
   color: var(--gray-dark);
   h2 {
     font-family: 'Nunito', sans-serif;
-    font-size: 3.2rem;
+    font-size: calc(3rem + 1.3vw);
     font-weight: 800;
   }
   ul {
@@ -103,7 +103,7 @@ export const HeroSkillWrapper = styled.div`
     color: var(--white);
     font-family: 'Nunito';
     font-weight: 800;
-    font-size: 2rem;
+    font-size: calc(2rem + 0.25vw);
     display: inline-flex;
     align-items: center;
     gap: 0.8rem;
