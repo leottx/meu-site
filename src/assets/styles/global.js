@@ -91,7 +91,7 @@ export const GlobalStyles = createGlobalStyle`
     --orange: #EA580C;
     --orange-light: #FED7AA;
     --teal: #115E59;
-    --text-color-tint: hsla(0,0%,100%,0.75);
+    --text-color-tint: #666;
     --white: #fff;
   }
 
@@ -111,11 +111,7 @@ export const GlobalStyles = createGlobalStyle`
   body {
     -webkit-font-smoothing: antialiased;
     background-color: var(--white);
-    /* min-height: 100vh;
-    background-image: ${`url(${siteBg})`};
-    fill:rgba(101, 68, 233, 0.15);
-    background-size:290px 290px;
-    background-repeat:repeat; */
+    color: var(--gray-dark);
   }
 
   body, input, textarea, button {
