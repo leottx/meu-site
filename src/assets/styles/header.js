@@ -47,11 +47,11 @@ export const LogoText = styled.p`
     line-height: 1;
     display: block;
     &:first-child {
-      font-size: 2.4rem;
+      font-size: 2.8rem;
       font-weight: 700;
     }
     &:last-child {
-      font-size: 1.6rem;
+      font-size: 2rem;
       font-weight: 500;
     }
   }
