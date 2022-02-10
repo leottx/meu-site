@@ -6,6 +6,7 @@ import { Header } from '@Components/Header';
 import { Hero } from '@Components/Hero';
 import { Portfolio } from '@Components/Portfolio';
 import { Blog } from '@Components/Blog';
+import { Footer } from '@Components/Footer';
 
 // ESTILOS
 import { GlobalStyles } from '@Styles/global';
@@ -28,6 +29,7 @@ export const App = () => {
       <Hero />
       <Portfolio />
       <Blog />
+      <Footer />
     </>
   );
 };
