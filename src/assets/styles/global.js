@@ -1,7 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-
-// Images
-import siteBg from '@Images/site-bg.svg';
+import styled from 'styled-components';
 
 // Fonts
 import NunitoLight from '@Fonts/Nunito-Light.ttf';
@@ -135,3 +133,62 @@ export const GlobalStyles = createGlobalStyle`
     cursor: pointer;
   }
 `;
+
+export const Button = styled.button`
+  color: var(--white);
+  font-family: 'Nunito';
+  font-weight: 800;
+  font-size: 1.8rem;
+  padding: 1rem 1.8rem;
+  background: ${(props) => props.theme.color};
+  border-radius: 1.2rem;
+  border: none;
+  outline-offset: 2px;
+  outline: 3px dotted transparent;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+  &:hover {
+    background: ${(props) =>
+      props.theme.shade ? props.theme.shade : props.theme.color};
+    outline: 3px dotted
+      ${(props) => (props.theme.shade ? props.theme.shade : props.theme.color)};
+  }
+  svg {
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
+  }
+`;
+
+export const ButtonLink = styled.button`
+  color: var(--white);
+  font-family: 'Nunito';
+  font-weight: 800;
+  font-size: ${(props) => props.theme.fontSize};
+  padding: 1rem 1.8rem;
+  background: ${(props) => props.theme.color};
+  border-radius: 1.2rem;
+  border: none;
+  outline-offset: 2px;
+  outline: 3px dotted transparent;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+  &:hover {
+    background: ${(props) =>
+      props.theme.shade ? props.theme.shade : props.theme.color};
+    outline: 3px dotted
+      ${(props) => (props.theme.shade ? props.theme.shade : props.theme.color)};
+  }
+  svg {
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
+  }
+  @media screen and (min-width: 740px) {
+    font-size: ${(props) => `calc(${props.theme.fontSize} + 0.25vw)`};
+  }
+`;
+
+// calc(2rem + 0.25vw)
