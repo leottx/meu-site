@@ -30,7 +30,11 @@ export const Header = () => {
           theme={{
             color: 'var(--primary-color-tint)',
             shade: 'var(--primary-color-shade)',
-            fontSize: '1.8rem',
+            fontSize: `clamp(
+              1.125rem * 1.6,
+              1.0548245614035088rem * 1.6 + 0.3508771929824561vw,
+              1.375rem * 1.6
+            )`,
           }}
           onClick={handleShowMobileMenu}
         >
