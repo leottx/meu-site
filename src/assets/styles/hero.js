@@ -1,122 +1,325 @@
 import styled from 'styled-components';
 
+// IMAGENS
+import openQuote from '@Images/icon-quote-open.svg';
+import closeQuote from '@Images/icon-quote-close.svg';
+
 export const Container = styled.section`
-  /* grid-column: 1 / -1; */
+  padding: 6rem 2rem;
+  max-width: calc(1460px + (3.6rem * 2 - 8px));
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+  align-content: center;
+  min-height: 75vh;
+  @media only screen and (min-width: 740px) {
+    padding: 6rem 3.6rem;
+  }
+  @media only screen and (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 1.6rem;
+  }
 `;
 
-export const HeroWrapper = styled.div`
-  padding: 2rem 0 6rem;
-  background-size: cover;
-  background-position: top center;
-  box-shadow: none;
-  overflow-x: hidden;
+export const MainWrapper = styled.div`
   display: grid;
-  align-content: start;
+  grid-template-columns: 3rem 1fr 3rem;
+  grid-column: 1/8;
+  grid-template-rows: 3rem auto auto auto 3rem;
   position: relative;
-  grid-template-columns: 2rem 1fr 2rem;
+  align-self: flex-start;
   grid-template-areas:
-    '. title .'
+    '. . .'
     '. image .'
-    '. text . ';
+    '. about .'
+    '. story .'
+    '. . .';
+  @media only screen and (min-width: 576px) {
+    grid-template-columns: 3rem min-content 1fr 3rem;
+    grid-template-areas:
+      '. . . .'
+      '. image about .'
+      '. story story .'
+      '. . . .';
+  }
+  @media only screen and (min-width: 1200px) {
+    grid-template-columns: 3.6rem min-content 1fr 3.6rem;
+    grid-template-rows: 3.6rem auto auto auto 3.6rem;
+  }
 `;
 
-export const HeroTitleWrapper = styled.div`
-  color: var(--white);
-  padding-bottom: 1.2rem;
-  grid-area: title;
-  font-family: 'Nunito';
+export const About = styled.div`
+  grid-area: about;
+  border-radius: 1.2rem;
+  color: #527e3a;
+  font-family: 'Nunito', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
   &::after {
     content: '';
-    grid-column: 1 / -1;
-    grid-row: 1 / 2;
+    grid-column: 1/-1;
+    grid-row: 1/-1;
     position: absolute;
-    background-color: var(--primary-color);
-    border-radius: 2.8rem;
-    left: -10em;
-    right: -20rem;
-    top: -6rem;
-    bottom: -7rem;
-    z-index: -1;
-    margin-bottom: 0.5em;
-  }
-  h1 {
-    color: var(--white);
-    font-size: calc(3.2rem + 1.3vw);
-    font-weight: 800;
-    line-height: 1.2;
-    padding: 0.5em 0 1em;
-  }
-  p {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 4rem;
-    a {
-      color: var(--white);
-    }
-    svg {
-      margin-left: 0.6rem;
-      width: 2.4rem;
-      height: 2.4rem;
-    }
-  }
-`;
-
-export const HeroPicWrapper = styled.figure`
-  background-color: c.$white;
-  border-radius: 25px;
-  box-shadow: 2px 5px 12px rgba(0, 0, 0, 0.2);
-  grid-area: image;
-  height: 90vw;
-  margin-bottom: 4.8rem;
-  overflow: hidden;
-  width: 75vw;
-  img {
-    border: 10px solid var(--white);
-    border-radius: 25px;
-    display: block;
-    height: 90vw;
-    width: 75vw;
-    object-fit: cover;
-  }
-`;
-
-export const HeroSkillWrapper = styled.div`
-  grid-area: text;
-  color: var(--gray-dark);
-  h2 {
-    font-family: 'Nunito', sans-serif;
-    font-size: calc(3rem + 1.3vw);
-    font-weight: 800;
-  }
-  ul {
-    align-items: center;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 56px);
-    gap: 1rem 2.4rem;
-    margin: 2.4rem 0 3.6rem;
-    svg {
-      width: 5.6rem;
-      height: 5.6rem;
-    }
-  }
-  a {
-    color: var(--white);
-    font-family: 'Nunito';
-    font-weight: 800;
-    font-size: calc(2rem + 0.25vw);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    padding: 1rem 1.8rem;
-    background: var(--primary-color-tint);
+    background: #f3fbee;
+    border: 2px dashed #8db17a;
     border-radius: 1.2rem;
-    border: none;
-    outline-offset: 2px;
-    outline: 3px dotted transparent;
-    transition: all 0.2s;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: -6px;
+    z-index: -1;
+    margin-bottom: 0.6em;
+    box-shadow: 0 5px 12px -7px rgba(0, 0, 0, 0.8);
+  }
+  @media only screen and (min-width: 576px) {
+    margin-top: 0;
+    margin-left: 3rem;
+  }
+`;
+
+export const Story = styled.div`
+  font-family: 'PTSerif';
+  // 17px @320px increasing to 20px @1460px
+  font-size: clamp(
+    1.0625rem * 1.6,
+    1.0098684210526316rem * 1.6 + 0.2631578947368421vw * 1.6,
+    1.25rem * 1.6
+  );
+  line-height: 1.5;
+  grid-area: story;
+  position: relative;
+  margin-top: 3rem;
+  a {
+    font-weight: 700;
+    color: inherit;
+    text-decoration: underline;
     &:hover {
-      outline: 3px dotted var(--primary-color-shade);
-      background: var(--primary-color-shade);
+      color: #527e3a;
     }
+  }
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: invert(45%) sepia(29%) saturate(760%) hue-rotate(55deg)
+      brightness(90%) contrast(88%);
+    z-index: -1;
+    opacity: 0.3;
+  }
+  &::before {
+    top: -25px;
+    left: -16px;
+    background-image: url(${openQuote});
+  }
+  &::after {
+    bottom: -16px;
+    right: -16px;
+    background-image: url(${closeQuote});
+  }
+
+  @media only screen and (min-width: 576px) {
+    margin-top: 3.6rem;
+  }
+`;
+
+export const Location = styled.p`
+  // 20px @320px increasing to 24px @1460px
+  font-size: clamp(
+    1.25rem * 1.6,
+    1.1798245614035088rem * 1.6 + 0.3508771929824561vw,
+    1.5rem * 1.6
+  );
+  font-weight: 700;
+  a {
+    color: #555;
+  }
+`;
+
+export const AboutTitle = styled.div`
+  h1 {
+    // 32px @320px increasing to 42px @1460px
+    font-size: clamp(
+      2rem * 1.6,
+      1.8245614035087718rem * 1.6 + 0.8771929824561403vw,
+      2.625rem * 1.6
+    );
+    font-weight: 900;
+    line-height: 1.2;
+  }
+`;
+
+export const PicWrapper = styled.div`
+  grid-area: image;
+  padding: 1.5rem;
+  width: 50vw;
+  height: 60vw;
+  max-width: 180px;
+  max-height: 216px;
+  min-width: 145px;
+  min-height: 174px;
+`;
+
+export const Picture = styled.figure`
+  height: 100%;
+  transform: rotate(-12deg);
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 1.6rem;
+    border: 8px solid #527e3a;
+  }
+`;
+
+export const Skills = styled.div`
+  border-radius: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  grid-column: 9 /-1;
+  padding: 3rem;
+  background: #ffecd6;
+  border: 2px dashed #f5a376;
+  position: relative;
+  box-shadow: 0 5px 12px -7px rgba(0, 0, 0, 0.8);
+  width: 100%;
+  min-height: 500px;
+  a {
+    align-self: center;
+    position: relative;
+    z-index: 1;
+  }
+  @media only screen and (min-width: 1200px) {
+    padding: 3.6rem;
+  }
+`;
+
+export const SkillsIcons = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(5.2rem, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  transform: translateY(4rem);
+  max-width: 360px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  svg {
+    width: calc(4.2rem + 1vw);
+    max-width: 5.2rem;
+    height: auto;
+    &:last-child {
+      margin-right: auto;
+    }
+  }
+  @media only screen and (min-width: 1200px) {
+    transform: translateY(4.8rem);
+  }
+`;
+
+export const SkillsTitle = styled.h2`
+  font-family: 'Nunito';
+  font-weight: 800;
+  // 26px @320px increasing to 32px @1460px
+  font-size: clamp(
+    1.625rem * 1.6,
+    1.5197368421052633rem * 1.6 + 0.5263157894736842vw,
+    2rem * 1.6
+  );
+  padding: 0 1.8rem;
+  height: 5.5rem;
+  display: flex;
+  align-items: center;
+  background: #f55700;
+  border-radius: 1.2rem;
+  align-self: center;
+  color: var(--white);
+  position: relative;
+  z-index: 1;
+  transform-style: preserve-3D;
+  -ms-transform: translateY(50%) translateY(38px); /* IE 11 */
+  transform: translateY(calc(50% + 38px));
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+  &::before {
+    content: '';
+    position: absolute;
+    width: calc(100% - 6rem);
+    padding-top: calc(100% - 6rem);
+    border-radius: 50%;
+    background: #faaa60;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%) translateZ(-1px);
+    z-index: -1;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    width: calc(100% - 3rem);
+    padding-top: calc(100% - 3rem);
+    border-radius: 50%;
+    background: rgba(250, 170, 96, 0.3);
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%) translateZ(-2px);
+    z-index: -2;
+  }
+`;
+
+export const SkillsCloud = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  right: 0;
+  z-index: 0;
+  max-width: 600px;
+  width: 100%;
+  transform: translateX(-50%);
+`;
+
+export const SkillsList = styled.ul`
+  overflow: hidden;
+  li {
+    position: absolute;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    color: rgba(191, 93, 0, 0.18);
+  }
+`;
+
+export const Tape = styled.div`
+  content: '';
+  display: block;
+  height: 34px;
+  position: absolute;
+  margin: auto;
+  background: #e2d6c4;
+  /* box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1); */
+  border-right: 1px dotted #e2d6c4;
+  border-left: 1px dotted #e2d6c4;
+  opacity: 0.5;
+  &.top-left {
+    top: 5px;
+    left: -40px;
+    transform: rotate(-45deg);
+    width: 120px;
+  }
+  &.bottom-right {
+    transform: rotate(-45deg);
+    bottom: 5px;
+    right: -40px;
+    width: 120px;
   }
 `;
