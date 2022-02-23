@@ -138,7 +138,7 @@ export const Button = styled.button`
   color: var(--white);
   font-family: 'Nunito';
   font-weight: 800;
-  font-size: 1.8rem;
+  font-size: ${(props) => props.theme.fontSize};
   padding: 1rem 1.8rem;
   background: ${(props) => props.theme.color};
   border-radius: 1.2rem;
@@ -161,7 +161,7 @@ export const Button = styled.button`
   }
 `;
 
-export const ButtonLink = styled.button`
+export const ButtonLink = styled.a`
   color: var(--white);
   font-family: 'Nunito';
   font-weight: 800;
@@ -186,9 +186,58 @@ export const ButtonLink = styled.button`
   svg {
     filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
   }
-  @media screen and (min-width: 740px) {
-    font-size: ${(props) => `calc(${props.theme.fontSize} + 0.25vw)`};
+`;
+
+export const ButtonLinkEmpty = styled.a`
+  color: ${(props) => props.theme.color};
+  font-family: 'Nunito';
+  font-weight: 800;
+  font-size: ${(props) => props.theme.fontSize};
+  padding: 1rem 1.8rem;
+  background: var(--white);
+  outline: 3px dotted transparent;
+  outline-offset: -3px;
+  border-radius: 1.2rem;
+  border: 2px solid ${(props) => props.theme.color};
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  &:hover {
+    outline: 3px dotted ${(props) => props.theme.color};
+    border: 2px solid transparent;
   }
 `;
 
-// calc(2rem + 0.25vw)
+export const CensorText = styled.del`
+  display: block;
+  width: calc(100% - 0.8em);
+  margin: 0 auto;
+  span {
+    display: inline-block;
+    background: linear-gradient(
+      0deg,
+      transparent 5%,
+      black 5%,
+      black 95%,
+      transparent 0
+    );
+    color: transparent;
+    transform: rotate(0.5deg) skewx(-5deg);
+    padding: 0 1em;
+    margin: 0 -0.4em;
+    user-select: none;
+    cursor: default;
+    border-radius: 0.2em 0.3em;
+    &:nth-child(odd) {
+      transform: rotate(-1.4deg) skewx(-6deg);
+    }
+    /* &:nth-child(even) {
+      transform: rotate(1.4deg) skewx(10deg);
+    } */
+
+    /*&:nth-child(5) {
+      transform: rotate(2deg);
+    } */
+  }
+`;
