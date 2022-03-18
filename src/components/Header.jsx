@@ -18,9 +18,9 @@ export const Header = () => {
   };
 
   return (
-    <Container className='grow'>
+    <Container className="grow">
       <Wrapper>
-        <LogoLink>
+        <LogoLink href="https://leonardotx.com.br">
           <LogoText>
             <span>Leo</span>
             <span>Dev</span>

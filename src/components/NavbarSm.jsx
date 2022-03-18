@@ -1,20 +1,30 @@
-import { NavSm, ProjectBtn } from '@Styles/header';
+import { NavSm } from '@Styles/header';
+import { ButtonLink } from '@Styles/global';
 
 export const NavbarSm = () => {
   return (
     <NavSm>
       <ul>
         <li>
-          <a href='#'>Sobre</a>
+          <a href="#sobre">Sobre</a>
         </li>
         <li>
-          <a href='#'>Artigos</a>
+          <a href="#artigos">Artigos</a>
         </li>
         <li>
-          <a href='#'>Contato</a>
+          <a href="#contato">Contato</a>
         </li>
         <li>
-          <ProjectBtn href='#'>Projetos</ProjectBtn>
+          <ButtonLink
+            href="#portfolio"
+            theme={{
+              color: 'var(--primary-color-tint)',
+              shade: 'var(--primary-color-shade)',
+              fontSize: '1.8rem',
+            }}
+          >
+            Projetos
+          </ButtonLink>
         </li>
       </ul>
     </NavSm>
