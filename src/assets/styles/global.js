@@ -1,5 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 import styled from 'styled-components';
+import { tint } from 'polished';
 
 // Fonts
 import NunitoLight from '@Fonts/Nunito-Light.ttf';
@@ -10,6 +11,8 @@ import NunitoBold from '@Fonts/Nunito-Bold.ttf';
 import NunitoExtraBold from '@Fonts/Nunito-ExtraBold.ttf';
 import PTSerifBold from '@Fonts/PTSerif-Bold.ttf';
 import PTSerifRegular from '@Fonts/PTSerif-Regular.ttf';
+import PTSerifBoldItalic from '@Fonts/PTSerif-BoldItalic.ttf';
+import PTSerifRegularItalic from '@Fonts/PTSerif-Italic.ttf';
 import MontserratBold from '@Fonts/Montserrat-Bold.ttf';
 import MontserratMedium from '@Fonts/Montserrat-Medium.ttf';
 
@@ -77,6 +80,18 @@ export const GlobalStyles = createGlobalStyle`
     font-style: normal;
     font-weight: 400;
   }
+  @font-face {
+    src: ${`url(${PTSerifBoldItalic}) format('truetype')`};
+    font-family: 'PTSerif';
+    font-style: italic;
+    font-weight: 700;
+  }
+  @font-face {
+    src: ${`url(${PTSerifRegularItalic}) format('truetype')`};
+    font-family: 'PTSerif';
+    font-style: italic;
+    font-weight: 400;
+  }
 
   // Variables
   :root {
@@ -89,6 +104,10 @@ export const GlobalStyles = createGlobalStyle`
     --orange: #EA580C;
     --orange-light: #FED7AA;
     --teal: #115E59;
+    --magenta: #AA1994;
+    --magenta-light: #FFC5F7;
+    --blue: #006FC5;
+    --blue-light: #C5EEFF;
     --text-color-tint: #666;
     --white: #fff;
   }
@@ -140,7 +159,8 @@ export const Button = styled.button`
   font-weight: 800;
   font-size: ${(props) => props.theme.fontSize};
   padding: 1rem 1.8rem;
-  background: ${(props) => props.theme.color};
+  background: ${({ disabled, theme }) =>
+    disabled ? tint(0.5, '#006fc5') : theme.color};
   border-radius: 1.2rem;
   border: none;
   outline-offset: 2px;
@@ -149,13 +169,20 @@ export const Button = styled.button`
   display: inline-flex;
   align-items: center;
   gap: 0.8rem;
+  cursor: initial;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
-  &:hover {
-    background: ${(props) =>
-      props.theme.shade ? props.theme.shade : props.theme.color};
-    outline: 3px dotted
-      ${(props) => (props.theme.shade ? props.theme.shade : props.theme.color)};
-  }
+  ${({ disabled }) =>
+    !disabled &&
+    css`
+      cursor: pointer;
+      &:hover {
+        background: ${(props) =>
+          props.theme.shade ? props.theme.shade : props.theme.color};
+        outline: 3px dotted
+          ${(props) =>
+            props.theme.shade ? props.theme.shade : props.theme.color};
+      }
+    `}
   svg {
     filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
   }
@@ -232,12 +259,5 @@ export const CensorText = styled.del`
     &:nth-child(odd) {
       transform: rotate(-1.4deg) skewx(-6deg);
     }
-    /* &:nth-child(even) {
-      transform: rotate(1.4deg) skewx(10deg);
-    } */
-
-    /*&:nth-child(5) {
-      transform: rotate(2deg);
-    } */
   }
 `;
