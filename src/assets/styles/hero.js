@@ -3,51 +3,65 @@ import styled from 'styled-components';
 // IMAGENS
 import openQuote from '@Images/icon-quote-open.svg';
 import closeQuote from '@Images/icon-quote-close.svg';
+import textureWaves from '@Images/texture-waves.svg';
 
 export const Container = styled.section`
+  background-image: ${`url(${textureWaves})`};
+  background-size: 10px;
+  background-position: top left;
+`;
+
+export const HeroWrapper = styled.div`
   padding: 6rem 2rem;
-  max-width: calc(1460px + (3.6rem * 2 - 8px));
+  max-width: 1460px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 4.8rem;
   align-content: center;
-  min-height: 75vh;
-  @media only screen and (min-width: 740px) {
-    padding: 6rem 3.6rem;
+  @media only screen and (min-width: 640px) {
+    width: 92vw;
   }
-  @media only screen and (min-width: 1024px) {
+  @media only screen and (min-width: 768px) {
+    padding: 8rem 2rem;
+    width: 85vw;
+  }
+  @media only screen and (min-width: 1200px) {
+    padding: 10rem 2rem;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    column-gap: 1.6rem;
+    column-gap: 3.2rem;
   }
 `;
 
-export const MainWrapper = styled.div`
+export const Bio = styled.div`
   display: grid;
-  grid-template-columns: 3rem 1fr 3rem;
+  /* grid-template-columns: 3rem 1fr 3rem; */
   grid-column: 1/8;
-  grid-template-rows: 3rem auto auto auto 3rem;
+  /* grid-template-rows: 3rem auto auto auto 3rem; */
+  grid-template-rows: repeat(3, auto);
   position: relative;
   align-self: flex-start;
   grid-template-areas:
-    '. . .'
-    '. image .'
-    '. about .'
-    '. story .'
-    '. . .';
+    'image'
+    'about'
+    'story';
   @media only screen and (min-width: 576px) {
-    grid-template-columns: 3rem min-content 1fr 3rem;
+    /* grid-template-columns: 3rem min-content 1fr 3rem;
     grid-template-areas:
       '. . . .'
       '. image about .'
       '. story story .'
-      '. . . .';
+      '. . . .'; */
+    grid-template-columns: min-content 1fr;
+    grid-template-areas:
+      'image about'
+      'story story';
   }
-  @media only screen and (min-width: 1200px) {
+  /* @media only screen and (min-width: 1200px) {
     grid-template-columns: 3.6rem min-content 1fr 3.6rem;
     grid-template-rows: 3.6rem auto auto auto 3.6rem;
-  }
+  } */
 `;
 
 export const About = styled.div`
@@ -59,7 +73,7 @@ export const About = styled.div`
   flex-direction: column;
   gap: 2rem;
   margin-top: 2rem;
-  &::after {
+  /* &::after {
     content: '';
     grid-column: 1/-1;
     grid-row: 1/-1;
@@ -74,7 +88,7 @@ export const About = styled.div`
     z-index: -1;
     margin-bottom: 0.6em;
     box-shadow: 0 5px 12px -7px rgba(0, 0, 0, 0.8);
-  }
+  } */
   @media only screen and (min-width: 576px) {
     margin-top: 0;
     margin-left: 3rem;
@@ -85,11 +99,11 @@ export const Story = styled.div`
   font-family: 'PTSerif';
   // 17px @320px increasing to 20px @1460px
   font-size: clamp(
-    1.0625rem * 1.6,
-    1.0098684210526316rem * 1.6 + 0.2631578947368421vw * 1.6,
+    1.125rem * 1.6,
+    1.0899122807017543rem * 1.6 + 0.17543859649122806vw,
     1.25rem * 1.6
   );
-  line-height: 1.5;
+  line-height: 1.6;
   grid-area: story;
   position: relative;
   margin-top: 3rem;
@@ -158,25 +172,33 @@ export const AboutTitle = styled.div`
 
 export const PicWrapper = styled.div`
   grid-area: image;
-  padding: 1.5rem;
-  width: 50vw;
-  height: 60vw;
-  max-width: 180px;
-  max-height: 216px;
-  min-width: 145px;
-  min-height: 174px;
+  width: clamp(145px, 50vw, 180px);
+  height: clamp(174px, 60vw, 216px);
 `;
 
 export const Picture = styled.figure`
   height: 100%;
-  transform: rotate(-12deg);
+  transform: rotate(-12deg) ${`scale(${Math.cos(Math.abs(-12))})`};
+  position: relative;
   img {
     width: 100%;
     height: 100%;
     display: block;
     object-fit: cover;
     border-radius: 1.6rem;
-    border: 8px solid #527e3a;
+    border: 10px solid #527e3a;
+  }
+  &::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 1.6rem;
+    border: 4px dotted #527e3a;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+    transform: rotate(12deg);
   }
 `;
 
@@ -284,7 +306,7 @@ export const SkillsCloud = styled.div`
   left: 50%;
   right: 0;
   z-index: 0;
-  max-width: 600px;
+  max-width: 500px;
   width: 100%;
   transform: translateX(-50%);
 `;

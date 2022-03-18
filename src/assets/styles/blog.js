@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 
+// IMAGES
+import textureWaves from '@Images/texture-waves.svg';
+
 export const Container = styled.section`
+  background-image: ${`url(${textureWaves})`};
+  background-size: 10px;
+  background-position: top left;
   position: relative;
   &::before {
     content: '';
@@ -29,7 +35,7 @@ export const BlogWrapper = styled.div`
     width: 92vw;
   }
   @media only screen and (min-width: 768px) {
-    padding: 12rem 2rem;
+    padding: 10rem 2rem;
     width: 85vw;
   }
 `;
@@ -43,40 +49,40 @@ export const LatestArticle = styled.article`
   row-gap: 2rem;
   column-gap: 3.6rem;
   figure {
-    /* grid-column: 1 / -1; */
     grid-area: image;
     position: relative;
-    transform: rotate(-12deg);
-    padding: 1.5rem;
-    width: 50vw;
-    height: 60vw;
-    max-width: 160px;
-    max-height: 192px;
+    transform: rotate(-12deg) ${`scale(${Math.cos(Math.abs(-12))})`};
+    width: min(50vw, 160px);
+    height: min(60vw, 192px);
+    /* width: 50vw;
+    height: 60vw; */
+    /* max-width: 160px;
+    max-height: 192px; */
     img {
       width: 100%;
       height: 100%;
       display: block;
       object-fit: cover;
       border-radius: 1.6rem;
-      border: 8px solid var(--primary-color);
+      border: 10px solid var(--primary-color);
     }
     &::after {
       content: '';
-      width: calc(98% - 3rem);
-      height: calc(90% - 3rem);
+      width: 100%;
+      height: 100%;
       border-radius: 1.6rem;
       border: 3px dotted var(--primary-color-shade);
-      top: 1.5rem;
-      left: 1.5rem;
+      top: 0;
+      left: 0;
       position: absolute;
       z-index: -1;
-      transform: rotate(21deg);
+      transform: rotate(12deg);
     }
   }
   @media only screen and (min-width: 600px) {
     figure {
-      max-width: 215px;
-      max-height: 258px;
+      width: min(50vw, 215px);
+      height: min(50vw, 258px);
       &::after {
         border-width: 4px;
       }
