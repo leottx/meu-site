@@ -1,18 +1,28 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-  padding: 2rem;
+  padding: 1.6rem 2rem 2rem;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
   background: var(--primary-color);
+  @media only screen and (min-width: 640px) {
+    padding: 2rem 3.6rem;
+  }
 `;
 
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1536px;
+  margin: 0 auto;
+  @media only screen and (min-width: 740px) {
+    > button {
+      display: none;
+    }
+  }
 `;
 
 export const LogoLink = styled.a`
@@ -47,67 +57,74 @@ export const LogoText = styled.p`
     line-height: 1;
     display: block;
     &:first-child {
-      font-size: 2.8rem;
+      // 26px @320px increasing to 30px @1460px
+      font-size: clamp(
+        1.625rem * 1.6,
+        1.5548245614035088rem * 1.6 + 0.3508771929824561vw,
+        1.875rem * 1.6
+      );
       font-weight: 700;
     }
     &:last-child {
-      font-size: 2rem;
+      // 18px @320px increasing to 22px @1460px
+      font-size: clamp(
+        1.125rem * 1.6,
+        1.0548245614035088rem * 1.6 + 0.3508771929824561vw,
+        1.375rem * 1.6
+      );
       font-weight: 500;
     }
   }
 `;
 
-export const Hamburguer = styled.button`
-  color: var(--white);
-  font-family: 'Nunito';
-  font-weight: 800;
-  font-size: 1.8rem;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  padding: 1rem 1.8rem;
-  background: var(--primary-color-tint);
-  border-radius: 1.2rem;
-  border: none;
-  outline-offset: 2px;
-  outline: 3px dotted transparent;
-  transition: all 0.2s;
-  &:hover {
-    outline: 3px dotted var(--primary-color-shade);
-    background: var(--primary-color-shade);
-  }
-`;
-
 export const NavSm = styled.nav`
   font-family: 'Nunito', sans-serif;
-  font-size: 1.8rem;
+  // 18px @320px increasing to 22px @1460px
+  font-size: clamp(
+    1.125rem * 1.6,
+    1.0548245614035088rem * 1.6 + 0.3508771929824561vw,
+    1.375rem * 1.6
+  );
   font-weight: 800;
   margin-top: 2rem;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
   li {
     display: flex;
     border-bottom: 2px dashed rgba(250, 250, 250, 0.15);
     padding: 1rem 0;
     &:last-child {
       border: none;
-      padding: 2rem 0 0;
+      padding: 1.6rem 0 0;
     }
   }
   a {
     color: var(--white);
   }
-`;
-
-export const ProjectBtn = styled.a`
-  padding: 1rem 1.8rem;
-  background: var(--primary-color-tint);
-  border-radius: 1.2rem;
-  outline-offset: 2px;
-  outline: 3px dotted transparent;
-  transition: all 0.2s;
-  &:hover {
-    outline: 3px dotted var(--primary-color-shade);
-    background: var(--primary-color-shade);
+  @media only screen and (min-width: 740px) {
+    display: none;
   }
 `;
 
-export const NavLg = styled.nav``;
+export const NavLg = styled.nav`
+  // 18px @320px increasing to 22px @1460px
+  font-size: clamp(
+    1.125rem * 1.6,
+    1.0548245614035088rem * 1.6 + 0.3508771929824561vw,
+    1.375rem * 1.6
+  );
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  display: none;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+  ul {
+    display: flex;
+    align-items: center;
+    gap: 3.2rem;
+  }
+  a {
+    color: var(--white);
+  }
+  @media only screen and (min-width: 740px) {
+    display: initial;
+  }
+`;
